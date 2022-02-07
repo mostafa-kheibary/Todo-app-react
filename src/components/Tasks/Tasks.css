@@ -1,6 +1,7 @@
 .tasks {
   width: 50%;
   padding: 50px;
+  height: calc(100vh - 80px);
 }
 .tasks__title {
   display: flex;
@@ -15,7 +16,19 @@
   margin-top: 25px;
 }
 .tasks__container {
+  height: 80%;
+  padding: 20px;
+  overflow-y: auto;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.tasks__container::-webkit-scrollbar{
+  width: 10px;
+}
+.tasks__container::-webkit-scrollbar-thumb{
+  width: 5px;
+  background-color: rgb(223, 223, 223);
+  border-radius: 50px;
 }

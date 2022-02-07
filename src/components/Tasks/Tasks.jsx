@@ -1,3 +1,4 @@
+import Task from '../Task/Task';
 import './Tasks.css';
 const Tasks = () => {
   return (
@@ -12,7 +13,14 @@ const Tasks = () => {
           <option value=''>Done Tasks</option>
         </select>
       </div>
-      <div className='tasks__container'></div>
+      <div className='tasks__container'>
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+      </div>
     </div>
   );
 };
