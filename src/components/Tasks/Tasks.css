@@ -1,0 +1,21 @@
+.tasks {
+  width: 50%;
+  padding: 50px;
+}
+.tasks__title {
+  display: flex;
+  gap: 10px;
+  place-items: center;
+}
+.tasks__title__text {
+  font-size: 18px;
+  font-weight: 500;
+}
+.tasks__sort {
+  margin-top: 25px;
+}
+.tasks__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
