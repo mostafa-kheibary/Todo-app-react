@@ -5,6 +5,7 @@
   padding: 20px 20px 20px 40px;
   border-radius: 8px;
 }
+
 .task-line{
   content: '';
   width: 5px;
@@ -14,10 +15,15 @@
   border-radius: 50px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #FF4545;
 }
-.task-line-done{
+.task del{
+  color: rgba(0, 0, 0, 0.486);
+}
+.done-true{
   background-color: #69FF34;
+}
+.done-false{
+  background-color: #FF4545;
 }
 .task__title{
   font-size: 22px;

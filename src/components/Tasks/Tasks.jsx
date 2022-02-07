@@ -1,6 +1,10 @@
+import { v4 as uuid4 } from 'uuid';
+import taskContext from '../context/TaskContext';
+import { useContext } from 'react';
 import Task from '../Task/Task';
 import './Tasks.css';
 const Tasks = () => {
+  const { tasks } = useContext(taskContext);
   return (
     <div className='tasks'>
       <div className='tasks__title'>
@@ -14,12 +18,14 @@ const Tasks = () => {
         </select>
       </div>
       <div className='tasks__container'>
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
+        {tasks.map((task) => (
+          <Task
+            key={uuid4()}
+            isDone={task.isDone}
+            topic={task.topic}
+            content={task.content}
+          />
+        ))}
       </div>
     </div>
   );
