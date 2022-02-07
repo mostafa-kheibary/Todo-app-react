@@ -1,4 +1,3 @@
-import { v4 as uuid4 } from 'uuid';
 import taskContext from '../context/TaskContext';
 import { useContext } from 'react';
 import Task from '../Task/Task';
@@ -20,7 +19,7 @@ const Tasks = () => {
       <div className='tasks__container'>
         {tasks.map((task) => (
           <Task
-            key={uuid4()}
+            key={task.id}
             isDone={task.isDone}
             topic={task.topic}
             content={task.content}
