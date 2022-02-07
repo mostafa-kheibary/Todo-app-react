@@ -13,10 +13,19 @@ export const TaskProvider = ({ children }) => {
       content: 'this is test from context , content lorem randoem',
     },
   ]);
+  const addTasks = (topic, content) => {
+    const newTask = {
+      isDone: false,
+      topic,
+      content,
+    };
+    setTasks([...tasks , newTask]);
+  };
   return (
     <TaskContext.Provider
       value={{
         tasks,
+        addTasks
       }}
     >
       {children}
