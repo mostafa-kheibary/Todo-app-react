@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 const TaskContext = createContext();
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
-
+  const [PopUp, setPopUp] = useState({ in: false, id: null });
   const addTasks = (topic, content) => {
     const newTask = {
       id: uuid4(),
@@ -24,6 +24,15 @@ export const TaskProvider = ({ children }) => {
     newTask[index].isDone = !newTask[index].isDone;
     setTasks(newTask);
   };
+  const setId = (id) => {
+    setPopUp({ in: !PopUp.in, id: id });
+  };
+  const editTask = (text) => {
+    const newTask = [...tasks];
+    const index = newTask.findIndex((task) => task.id === PopUp.id);
+    newTask[index].topic = text;
+    setTasks(newTask);
+  };
   return (
     <TaskContext.Provider
       value={{
@@ -31,6 +40,10 @@ export const TaskProvider = ({ children }) => {
         addTasks,
         deleteTask,
         doneTask,
+        PopUp,
+        setPopUp,
+        setId,
+        editTask,
       }}
     >
       {children}
