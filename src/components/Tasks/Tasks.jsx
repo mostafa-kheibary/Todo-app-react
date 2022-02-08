@@ -1,9 +1,17 @@
 import taskContext from '../context/TaskContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Task from '../Task/Task';
 import './Tasks.css';
 const Tasks = () => {
-  const { tasks } = useContext(taskContext);
+  const [all, setAll] = useState(true);
+  const { tasks, doneTaskList } = useContext(taskContext);
+  const handlechange = (e) => {
+    if (e.target.value === 'all') {
+      setAll(true);
+    } else if (e.target.value === 'done') {
+      setAll(false);
+    }
+  };
   return (
     <div className='tasks'>
       <div className='tasks__title'>
@@ -11,21 +19,31 @@ const Tasks = () => {
         <h2 className='tasks__title__text'>All Tasks</h2>
       </div>
       <div className='tasks__sort'>
-        <select name='' id=''>
-          <option value=''>All Tasks</option>
-          <option value=''>Done Tasks</option>
+        <select onClick={handlechange} name='' id=''>
+          <option value='all'>All Tasks</option>
+          <option value='done'>Done Tasks</option>
         </select>
       </div>
       <div className='tasks__container'>
-        {tasks.map((task) => (
-          <Task
-            key={task.id}
-            id={task.id}
-            isDone={task.isDone}
-            topic={task.topic}
-            content={task.content}
-          />
-        ))}
+        {all === true
+          ? tasks.map((task) => (
+              <Task
+                key={task.id}
+                id={task.id}
+                isDone={task.isDone}
+                topic={task.topic}
+                content={task.content}
+              />
+            ))
+          : doneTaskList.map((task) => (
+              <Task
+                key={task.id}
+                id={task.id}
+                isDone={task.isDone}
+                topic={task.topic}
+                content={task.content}
+              />
+            ))}
       </div>
     </div>
   );

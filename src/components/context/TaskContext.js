@@ -1,8 +1,9 @@
 import { v4 as uuid4 } from 'uuid';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 const TaskContext = createContext();
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
+  const [doneTaskList, setDoneTask] = useState([]);
   const [PopUp, setPopUp] = useState({ in: false, id: null });
   const addTasks = (topic, content) => {
     const newTask = {
@@ -13,7 +14,10 @@ export const TaskProvider = ({ children }) => {
     };
     setTasks([...tasks, newTask]);
   };
-
+  useEffect(() => {
+    const alldoneTask = tasks.filter((task) => task.isDone === true);
+    setDoneTask(alldoneTask);
+  }, [tasks]);
   const deleteTask = (id) => {
     const newTask = tasks.filter((task) => task.id !== id);
     setTasks(newTask);
@@ -44,6 +48,7 @@ export const TaskProvider = ({ children }) => {
         setPopUp,
         setId,
         editTask,
+        doneTaskList,
       }}
     >
       {children}
