@@ -20,6 +20,7 @@ const Tasks = () => {
         {tasks.map((task) => (
           <Task
             key={task.id}
+            id={task.id}
             isDone={task.isDone}
             topic={task.topic}
             content={task.content}
