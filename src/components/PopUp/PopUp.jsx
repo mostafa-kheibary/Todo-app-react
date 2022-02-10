@@ -9,7 +9,7 @@ const PopUp = () => {
       console.log('yes');
       editTask(text);
     }
-    setPopUp({ in: false, id: null });
+    setPopUp({ in: false, item: null });
     setText('');
   };
 
@@ -18,8 +18,9 @@ const PopUp = () => {
   };
   return (
     <div className={PopUp.in === false ? 'pop-up' : 'pop-up pop-up-show'}>
-      <h4 className='pop-up__title'>you are editing :</h4>
+      <h4 className='pop-up__title'>Are you sure to edit ?</h4>
       <input
+      placeholder={PopUp.item !== null ? 'you editing '+PopUp.item.topic:'nothing'}
         value={text}
         onChange={handleText}
         type='text'
@@ -30,13 +31,13 @@ const PopUp = () => {
           onClick={() => handleSubmit(true)}
           className='pop-up__button ok'
         >
-          ok
+          confirm
         </button>
         <button
           onClick={() => handleSubmit(false)}
           className='pop-up__button no'
         >
-          no
+          Cancel
         </button>
       </div>
     </div>

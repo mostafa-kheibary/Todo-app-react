@@ -1,4 +1,4 @@
-.pop-up{
+.pop-up {
   opacity: 0;
   visibility: hidden;
   z-index: 999;
@@ -11,42 +11,55 @@
   background-color: white;
   width: 400px;
   margin: 20px;
-  transform: translate(-50%,-50%) scale(.9);
+  transform: translate(-50%, -50%) scale(0.9);
   transition: all 200ms ease;
 }
-.pop-up-show{
-  transform: translate(-50%,-50%) scale(1);
+.pop-up-show {
+  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   visibility: visible;
 }
-.pop-up__title{
+.pop-up__title {
   font-size: 20px;
   font-weight: 500;
 }
-.pop-up__input{
+.pop-up__input {
   margin-top: 25px;
-  padding: 5px;
+  padding: 8px;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.233);
   width: 100%;
   border: none;
 }
-.pop-up__buttons{
+.pop-up__input:focus {
+  outline: none;
+}
+.pop-up__buttons {
   margin-top: 25px;
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-direction: row-reverse;
 }
-.pop-up__button{
+.pop-up__button {
   color: white;
   width: 120px;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
   border: none;
   height: 40px;
+  transition: all 200ms ease;
 }
-.ok{
-  background-color: #69FF34;
+.ok {
+  background-color: #59b637;
 }
-.no{
-  background-color: #FF4545;
+.no {
+  background-color: #ff4545;
+}
+.ok:hover {
+  background-color: #5aad3c;
+}
+.no:hover {
+  background-color: #dd3d3d;
 }

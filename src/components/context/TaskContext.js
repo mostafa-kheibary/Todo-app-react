@@ -4,7 +4,7 @@ const TaskContext = createContext();
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
   const [doneTaskList, setDoneTask] = useState([]);
-  const [PopUp, setPopUp] = useState({ in: false, id: null });
+  const [PopUp, setPopUp] = useState({ in: false, item: null });
   const addTasks = (topic, content) => {
     const newTask = {
       id: uuid4(),
@@ -12,7 +12,7 @@ export const TaskProvider = ({ children }) => {
       topic,
       content,
     };
-    setTasks([...tasks, newTask]);
+    setTasks([newTask,...tasks]);
   };
   useEffect(() => {
     const alldoneTask = tasks.filter((task) => task.isDone === true);
@@ -29,11 +29,12 @@ export const TaskProvider = ({ children }) => {
     setTasks(newTask);
   };
   const setId = (id) => {
-    setPopUp({ in: !PopUp.in, id: id });
+    const index = tasks.findIndex((task) => task.id === id);
+    setPopUp({ in: !PopUp.in, item: tasks[index] });
   };
   const editTask = (text) => {
     const newTask = [...tasks];
-    const index = newTask.findIndex((task) => task.id === PopUp.id);
+    const index = newTask.findIndex((task) => task.id === PopUp.item.id);
     newTask[index].topic = text;
     setTasks(newTask);
   };
