@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 import TaskContext from '../context/TaskContext';
 import './PopUp.css';
 const PopUp = () => {
@@ -6,6 +7,7 @@ const PopUp = () => {
   const { PopUp, setPopUp, editTask } = useContext(TaskContext);
   const handleSubmit = (isOk) => {
     if (isOk === true) {
+      toast.success('Task was successfully edited');
       console.log('yes');
       editTask(text);
     }
