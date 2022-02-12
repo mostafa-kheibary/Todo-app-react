@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import taskContext from '../context/TaskContext';
 import { useContext, useState } from 'react';
 import Task from '../Task/Task';
@@ -25,25 +26,27 @@ const Tasks = () => {
         </select>
       </div>
       <div className='tasks__container'>
-        {all === true
-          ? tasks.map((task) => (
-              <Task
-                key={task.id}
-                id={task.id}
-                isDone={task.isDone}
-                topic={task.topic}
-                content={task.content}
-              />
-            ))
-          : doneTaskList.map((task) => (
-              <Task
-                key={task.id}
-                id={task.id}
-                isDone={task.isDone}
-                topic={task.topic}
-                content={task.content}
-              />
-            ))}
+        <AnimatePresence>
+          {all === true
+            ? tasks.map((task) => (
+                <Task
+                  key={task.id}
+                  id={task.id}
+                  isDone={task.isDone}
+                  topic={task.topic}
+                  content={task.content}
+                />
+              ))
+            : doneTaskList.map((task) => (
+                <Task
+                  key={task.id}
+                  id={task.id}
+                  isDone={task.isDone}
+                  topic={task.topic}
+                  content={task.content}
+                />
+              ))}
+        </AnimatePresence>
       </div>
     </div>
   );

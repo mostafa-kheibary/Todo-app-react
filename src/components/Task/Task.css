@@ -4,6 +4,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.158);
   padding: 20px 20px 20px 40px;
   border-radius: 8px;
+  height:100px;
 }
 
 .task-line{
@@ -15,6 +16,7 @@
   border-radius: 50px;
   top: 50%;
   transform: translateY(-50%);
+  transition: all 200ms ease;
 }
 .task del{
   color: rgba(0, 0, 0, 0.486);

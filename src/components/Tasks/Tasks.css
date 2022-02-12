@@ -19,10 +19,10 @@
   height: 80%;
   padding: 20px;
   overflow-y: auto;
+  overflow-x:hidden;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 .tasks__container::-webkit-scrollbar{
   width: 10px;

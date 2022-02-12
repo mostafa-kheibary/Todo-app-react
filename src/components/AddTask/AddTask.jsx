@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import TaskContext from '../context/TaskContext';
 import { useContext, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,14 +15,14 @@ const AddTask = () => {
   };
   const handleSubmit = () => {
     setText({ topic: '', content: '' });
-    if (text.topic.trim() !== '' && text.topic.trim() !== '') {
+    if (text.topic.trim() !== '' && text.content.trim() !== '') {
       addTasks(text.topic, text.content);
     } else {
       errorMessage();
     }
   };
   const errorMessage = () => {
-   toast.error('Please fill the fallowing form');
+    toast.error('Please fill the fallowing form');
   };
   return (
     <div className='add-task'>
@@ -58,9 +59,13 @@ const AddTask = () => {
           />
         </div>
 
-        <button onClick={handleSubmit} className='add-task__inputs__submit'>
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          onClick={handleSubmit}
+          className='add-task__inputs__submit'
+        >
           Create New Task
-        </button>
+        </motion.button>
       </div>
     </div>
   );
