@@ -5,12 +5,11 @@ import './Task.css';
 const Task = ({ isDone, topic, content, id }) => {
   const { deleteTask, doneTask, setId } = useContext(TaskContext);
 
-  
   return (
     <motion.div
       className='task'
       initial={{ x: '-100%', margin: 0, height: 0 }}
-      animate={{ x: 0, height: '100px', marginTop: 25 }}
+      animate={{ x: 0, height: 100, marginTop: 25 }}
       exit={{
         x: '-100%',
         height: 0,
@@ -30,9 +29,21 @@ const Task = ({ isDone, topic, content, id }) => {
     >
       <span className={`task-line done-${isDone}`}></span>
       <div className='task__status'>
-        <motion.div whileTap={{scale:2}} onClick={() => deleteTask(id)} className='ball task__close'></motion.div>
-        <motion.div whileTap={{scale:2}} onClick={() => setId(id)} className='ball task__edit'></motion.div>
-        <motion.div whileTap={{scale:2}} onClick={() => doneTask(id)} className='ball task__done'></motion.div>
+        <motion.div
+          whileTap={{ scale: 2 }}
+          onClick={() => deleteTask(id)}
+          className='ball task__close'
+        ></motion.div>
+        <motion.div
+          whileTap={{ scale: 2 }}
+          onClick={() => setId(id)}
+          className='ball task__edit'
+        ></motion.div>
+        <motion.div
+          whileTap={{ scale: 2 }}
+          onClick={() => doneTask(id)}
+          className='ball task__done'
+        ></motion.div>
       </div>
       <h4 className='task__title'>
         {isDone === true ? <del>{topic}</del> : topic}

@@ -48,9 +48,9 @@ const AddTask = () => {
           />
         </div>
         <div>
-          <p className='add-task__lether-count'>{text.content.length}/150</p>
+          <p className='add-task__lether-count'>{text.content.length}/75</p>
           <textarea
-            maxLength={150}
+            maxLength={75}
             value={text.content}
             onChange={handleContent}
             className='input add-task__inputs__content'

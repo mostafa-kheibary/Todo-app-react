@@ -20,7 +20,6 @@
   padding: 20px;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -34,4 +33,5 @@
 }
 .nothing {
   font-weight: 300;
+  margin-top: 20px;
 }
