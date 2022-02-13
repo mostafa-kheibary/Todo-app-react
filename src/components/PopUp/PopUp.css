@@ -32,6 +32,17 @@
   width: 100%;
   border: none;
 }
+.pop-up__content{
+  margin-top: 15px;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px;
+  height: 100px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.233);
+  resize: none;
+}
+.pop-up__content:focus,
 .pop-up__input:focus {
   outline: none;
 }
