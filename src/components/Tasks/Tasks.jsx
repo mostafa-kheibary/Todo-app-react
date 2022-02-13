@@ -1,3 +1,4 @@
+import DropDown from '../DropDown/DropDown';
 import { AnimatePresence } from 'framer-motion';
 import taskContext from '../context/TaskContext';
 import { useContext, useState } from 'react';
@@ -7,9 +8,9 @@ const Tasks = () => {
   const [all, setAll] = useState(true);
   const { tasks, doneTaskList } = useContext(taskContext);
   const handlechange = (e) => {
-    if (e.target.value === 'all') {
+    if (e.target.dataset.catagory === 'all') {
       setAll(true);
-    } else if (e.target.value === 'done') {
+    } else if (e.target.dataset.catagory === 'done') {
       setAll(false);
     }
   };
@@ -20,10 +21,7 @@ const Tasks = () => {
         <h2 className='tasks__title__text'>All Tasks</h2>
       </div>
       <div className='tasks__sort'>
-        <select onClick={handlechange} name='' id=''>
-          <option value='all'>All Tasks</option>
-          <option value='done'>Done Tasks</option>
-        </select>
+        <DropDown chnageCatagory={handlechange} all={all} />
       </div>
       <div className='tasks__container'>
         <AnimatePresence>
