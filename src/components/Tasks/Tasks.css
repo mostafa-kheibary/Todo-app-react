@@ -13,7 +13,17 @@
   font-weight: 500;
 }
 .tasks__sort {
+  display: flex;
+  justify-content: space-between;
   margin-top: 25px;
+}
+.clear-all{
+  width: 130px;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.151);
+  cursor: pointer;
 }
 .tasks__container {
   height: 80%;

@@ -32,6 +32,9 @@ export const TaskProvider = ({ children }) => {
     setTasks(newTask);
     localStorage.setItem('tasks', JSON.stringify(newTask));
   };
+  const deleteAll = ()=>{
+    setTasks([]);
+  }
   const doneTask = (id) => {
     const newTask = [...tasks];
     const index = newTask.findIndex((task) => task.id === id);
@@ -60,6 +63,7 @@ export const TaskProvider = ({ children }) => {
         PopUp,
         setPopUp,
         setId,
+        deleteAll,
         editTask,
         doneTaskList,
       }}

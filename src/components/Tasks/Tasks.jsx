@@ -1,12 +1,12 @@
 import DropDown from '../DropDown/DropDown';
-import { AnimatePresence } from 'framer-motion';
+import {motion, AnimatePresence } from 'framer-motion';
 import taskContext from '../context/TaskContext';
 import { useContext, useState } from 'react';
 import Task from '../Task/Task';
 import './Tasks.css';
 const Tasks = () => {
   const [all, setAll] = useState(true);
-  const { tasks, doneTaskList } = useContext(taskContext);
+  const { tasks, doneTaskList,deleteAll } = useContext(taskContext);
   const handlechange = (e) => {
     if (e.target.dataset.catagory === 'all') {
       setAll(true);
@@ -22,6 +22,7 @@ const Tasks = () => {
       </div>
       <div className='tasks__sort'>
         <DropDown chnageCatagory={handlechange} all={all} />
+        <motion.button onClick={deleteAll} whileTap={{scale:.9}} className='clear-all' >Clear All</motion.button>
       </div>
       <div className='tasks__container'>
         <AnimatePresence>
