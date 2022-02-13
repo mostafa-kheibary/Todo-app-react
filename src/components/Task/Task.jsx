@@ -8,8 +8,8 @@ const Task = ({ isDone, topic, content, id }) => {
   return (
     <motion.div
       className='task'
-      initial={{ x: '-100%', margin: 0, height: 0 }}
-      animate={{ x: 0, height: 100, marginTop: 25 }}
+      initial={{ x: '-100%', margin: 0}}
+      animate={{ x: 0, marginTop: 25 }}
       exit={{
         x: '-100%',
         height: 0,

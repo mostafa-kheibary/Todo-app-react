@@ -8,6 +8,33 @@
 body {
   height: 100vh;
 }
-.container{
+.container {
   display: flex;
+}
+
+@media screen and (max-width: 1000px) {
+  .tasks {
+    padding: 20px !important ;
+  }
+  .add-task {
+    padding: 50px 20px 20px 20px !important;
+  }
+}
+
+
+@media screen and (max-width: 840px) {
+  .container{
+    flex-direction: column;
+  }
+  .container .tasks,.container .add-task{
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .pop-up{
+    width: 80% !important;
+  }
 }
