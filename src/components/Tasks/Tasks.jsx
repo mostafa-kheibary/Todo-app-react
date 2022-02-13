@@ -25,8 +25,9 @@ const Tasks = () => {
       </div>
       <div className='tasks__container'>
         <AnimatePresence>
-          {all === true
-            ? tasks.map((task) => (
+          {tasks.length !== 0 ? (
+            all === true ? (
+              tasks.map((task) => (
                 <Task
                   key={task.id}
                   id={task.id}
@@ -35,7 +36,8 @@ const Tasks = () => {
                   content={task.content}
                 />
               ))
-            : doneTaskList.map((task) => (
+            ) : (
+              doneTaskList.map((task) => (
                 <Task
                   key={task.id}
                   id={task.id}
@@ -43,7 +45,11 @@ const Tasks = () => {
                   topic={task.topic}
                   content={task.content}
                 />
-              ))}
+              ))
+            )
+          ) : (
+            <h4 className='nothing'>You dont have any task to do</h4>
+          )}
         </AnimatePresence>
       </div>
     </div>

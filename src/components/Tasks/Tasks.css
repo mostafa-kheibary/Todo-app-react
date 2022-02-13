@@ -19,16 +19,19 @@
   height: 80%;
   padding: 20px;
   overflow-y: auto;
-  overflow-x:hidden;
+  overflow-x: hidden;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
-.tasks__container::-webkit-scrollbar{
+.tasks__container::-webkit-scrollbar {
   width: 10px;
 }
-.tasks__container::-webkit-scrollbar-thumb{
+.tasks__container::-webkit-scrollbar-thumb {
   width: 5px;
   background-color: rgb(223, 223, 223);
   border-radius: 50px;
+}
+.nothing {
+  font-weight: 300;
 }
