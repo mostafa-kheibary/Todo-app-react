@@ -29,21 +29,21 @@ const Task = ({ isDone, topic, content, id }) => {
     >
       <span className={`task-line done-${isDone}`}></span>
       <div className='task__status'>
-        <motion.div
+        <motion.button
           whileTap={{ scale: 2 }}
           onClick={() => deleteTask(id)}
           className='ball task__close'
-        ></motion.div>
-        <motion.div
+        ></motion.button>
+        <motion.button
           whileTap={{ scale: 2 }}
           onClick={() => setId(id)}
           className='ball task__edit'
-        ></motion.div>
-        <motion.div
+        ></motion.button>
+        <motion.button
           whileTap={{ scale: 2 }}
           onClick={() => doneTask(id)}
           className='ball task__done'
-        ></motion.div>
+        ></motion.button>
       </div>
       <h4 className='task__title'>
         {isDone === true ? <del>{topic}</del> : topic}

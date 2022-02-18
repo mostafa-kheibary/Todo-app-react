@@ -46,6 +46,8 @@
   cursor: pointer;
 }
 .ball{
+  cursor: pointer;
+  border: none;
   border-radius: 50px;
   width: 12px;
   height: 12px;
