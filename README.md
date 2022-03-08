@@ -11,7 +11,7 @@
 - save on local storage
 - responsive in all devices
 
-## pakage that i use :
+## package that i use :
 - uuid,framer motion,react toastify
 ## Run Locally
 
